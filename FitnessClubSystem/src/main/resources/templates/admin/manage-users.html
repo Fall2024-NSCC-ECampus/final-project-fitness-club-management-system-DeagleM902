@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Manage Users</title>
+</head>
+<body>
+<h1>Manage Users</h1>
+
+<h2>Members</h2>
+<table>
+  <tr>
+    <th>ID</th><th>Username</th><th>Actions</th>
+  </tr>
+  <tr th:each="member : ${members}">
+    <td th:text="${member.id}"></td>
+    <td th:text="${member.username}"></td>
+    <td>
+      <form th:action="@{/admin/deleteUser}" method="post">
+        <input type="hidden" name="id" th:value="${member.id}" />
+        <button type="submit">Delete</button>
+      </form>
+    </td>
+  </tr>
+</table>
+
+<h2>Trainers</h2>
+<table>
+  <tr>
+    <th>ID</th><th>Username</th><th>Actions</th>
+  </tr>
+  <tr th:each="trainer : ${trainers}">
+    <td th:text="${trainer.id}"></td>
+    <td th:text="${trainer.username}"></td>
+    <td>
+      <form th:action="@{/admin/deleteUser}" method="post">
+        <input type="hidden" name="id" th:value="${trainer.id}" />
+        <button type="submit">Delete</button>
+      </form>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

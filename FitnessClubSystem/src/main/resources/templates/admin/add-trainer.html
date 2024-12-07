@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Add Trainer</title>
+</head>
+<body>
+<h1>Add Trainer</h1>
+<form th:action="@{/admin/addTrainer}" method="post" th:object="${user}">
+  <div>
+    <label>Username:</label>
+    <input type="text" th:field="*{username}" placeholder="Username" />
+  </div>
+  <div>
+    <label>Password:</label>
+    <input type="password" th:field="*{password}" placeholder="Password" />
+  </div>
+  <button type="submit">Add Trainer</button>
+</form>
+</body>
