@@ -12,6 +12,7 @@ import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.List;
 
+//Manages all the Admin actions through the dashboard and associated pages
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
@@ -100,6 +101,7 @@ public class AdminController {
         return "admin/manage-classes";
     }
 
+    //Remove a class
     @PostMapping("/deleteClass")
     public String deleteClass(@RequestParam("classId") Long classId) {
         classService.deleteClass(classId);

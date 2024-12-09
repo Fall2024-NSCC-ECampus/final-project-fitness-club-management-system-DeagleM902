@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+//Handles Trainer actions
 @Controller
 @RequestMapping("/trainer")
 public class TrainerController {
@@ -24,6 +25,7 @@ public class TrainerController {
         this.userService = userService;
     }
 
+    //Allows the Trainer to add members to their classes
     @PostMapping("/addMemberToClass")
     public String addMemberToClass(Authentication authentication, @RequestParam("classId") Long classId, @RequestParam("memberId") Long memberId) {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
@@ -38,7 +40,7 @@ public class TrainerController {
         return "redirect:/schedule/trainer";
     }
 
-    //Manage users page, get members and trainers
+    //Retrieve the member list with ID
     @GetMapping("/memberList")
     public String manageUsers(Model model) {
         //Load all users with MEMBER or TRAINER roles

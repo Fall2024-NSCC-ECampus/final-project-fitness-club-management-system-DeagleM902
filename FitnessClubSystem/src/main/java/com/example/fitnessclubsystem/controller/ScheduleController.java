@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+//For displaying Member and Trainer class schedules
 @Controller
 @RequestMapping("/schedule")
 public class ScheduleController {
@@ -26,6 +27,7 @@ public class ScheduleController {
         this.userService = userService;
     }
 
+    //Displays the Trainer class schedule
     @GetMapping("/trainer")
     public String trainerSchedule(Authentication authentication, Model model) {
         //Get currently logged-in trainer
@@ -34,7 +36,7 @@ public class ScheduleController {
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         if (trainer.getRole() != Role.TRAINER) {
-            return "error/403"; // or handle the error differently
+            return "error/403";
         }
 
         List<FitnessClass> classes = classService.getAllClassesForTrainer(trainer.getId());
@@ -42,6 +44,7 @@ public class ScheduleController {
         return "schedule/trainer-schedule";
     }
 
+    //Displays the Member class schedule
     @GetMapping("/member")
     public String memberSchedule(Authentication authentication, Model model) {
         //Get currently logged-in member

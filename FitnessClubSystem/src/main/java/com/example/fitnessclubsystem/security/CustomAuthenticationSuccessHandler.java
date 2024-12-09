@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.util.Collection;
 
+//Determines where users are redirected upon login
 @Component
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 

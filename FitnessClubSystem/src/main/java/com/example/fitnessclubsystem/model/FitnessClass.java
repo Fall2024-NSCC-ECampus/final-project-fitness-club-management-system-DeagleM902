@@ -7,6 +7,7 @@ import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.List;
 
+//The Class entity
 @Entity
 @Table(name = "fitness_class")
 @Data

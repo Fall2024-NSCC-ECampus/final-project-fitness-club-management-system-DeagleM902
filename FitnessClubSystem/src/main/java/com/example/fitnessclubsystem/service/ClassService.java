@@ -10,6 +10,7 @@ import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.List;
 
+//Class functionality and logic
 @Service
 public class ClassService {
     private final FitnessClassRepository fitnessClassRepository;
@@ -20,6 +21,7 @@ public class ClassService {
         this.userRepository = userRepository;
     }
 
+    //Creates a class with the given parameters
     public FitnessClass createClass(String className, DayOfWeek dayOfWeek, LocalTime time, Long trainerId) {
         User trainer = userRepository.findById(trainerId)
                 .orElseThrow(() -> new RuntimeException("Trainer not found"));
@@ -33,6 +35,7 @@ public class ClassService {
         return fitnessClassRepository.save(fitnessClass);
     }
 
+    //Associates a member to a class
     public FitnessClass addMemberToClass(Long classId, Long memberId) {
         FitnessClass fitnessClass = fitnessClassRepository.findById(classId)
                 .orElseThrow(() -> new RuntimeException("Class not found"));
@@ -58,6 +61,7 @@ public class ClassService {
                 .orElseThrow(() -> new RuntimeException("Class not found"));
     }
 
+    //Updates class info with the given parameters
     public FitnessClass updateClass(Long classId, String newName, DayOfWeek dayOfWeek, LocalTime time, Long trainerId) {
         FitnessClass fitnessClass = getClassById(classId);
         fitnessClass.setName(newName);
@@ -72,6 +76,7 @@ public class ClassService {
         return fitnessClassRepository.save(fitnessClass);
     }
 
+    //Returns classes for a given trainer
     public List<FitnessClass> getAllClassesForTrainer(Long trainerId) {
         return fitnessClassRepository.findAll()
                 .stream()
@@ -79,6 +84,7 @@ public class ClassService {
                 .toList();
     }
 
+    //Returns classes for a given Member
     public List<FitnessClass> getAllClassesForMember(Long memberId) {
         return fitnessClassRepository.findAll()
                 .stream()

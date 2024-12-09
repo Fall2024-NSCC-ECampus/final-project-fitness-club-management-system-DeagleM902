@@ -4,6 +4,7 @@ import com.example.fitnessclubsystem.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
+//The user entity, roles are given via enum
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor

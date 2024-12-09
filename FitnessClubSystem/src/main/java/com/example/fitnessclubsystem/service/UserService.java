@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+//User related functionalities
 @Service
 public class UserService {
 
@@ -20,6 +21,7 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    //Create a user with the MEMBER role
     public User createMember(UserRegistrationDto dto) {
         User user = new User();
         user.setUsername(dto.getUsername());
@@ -29,6 +31,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    //Create a user with the TRAINER role
     public User createTrainer(UserRegistrationDto dto) {
         User user = new User();
         user.setUsername(dto.getUsername());
