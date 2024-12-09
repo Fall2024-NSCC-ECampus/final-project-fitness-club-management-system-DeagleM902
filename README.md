@@ -17,7 +17,7 @@ This Fitness Club Management System is a web application built with **Java**, **
 - **Assign Members to Classes:** Trainers can add members to the classes they own.
 
 ### Member
-- **Login:** Members can log in with their credentials.
+- **Login:** Members can log in using their credentials.
 - **View Schedule:** Members can see the classes they are enrolled in.
 
 ---
