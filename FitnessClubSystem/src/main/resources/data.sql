@@ -1,1 +1,1 @@
-INSERT INTO user (username, password, role, enabled) VALUES ('admin', '$2a$12$J1BGSohT9dLbmiLw04FxMeTBpxKc37KAHCsDxNd7qnx5B.Diy45/a', 'ADMIN', true)
+INSERT IGNORE INTO user (username, password, role, enabled) VALUES ('admin', '$2a$12$J1BGSohT9dLbmiLw04FxMeTBpxKc37KAHCsDxNd7qnx5B.Diy45/a', 'ADMIN', true)
